@@ -1,0 +1,73 @@
+# Node.js with React
+# Build a Node.js project that uses React.
+# Add steps that analyze code, save build artifacts, deploy, and more:
+# https://docs.microsoft.com/azure/devops/pipelines/languages/javascript
+# Created By: Narges kazemi
+
+trigger:
+  - master
+
+pool:
+  name: "IKCOPool"
+
+stages:
+  - stage: Frontend
+    jobs:
+      - job: BuildFrontEnd
+        timeoutInMinutes: 500
+
+        steps:
+          # - script:
+          #       whoami
+          #   displayName: 'run whoam i -IKCOPool-build server'
+          - script: |
+              npm config rm proxy
+              npm config rm http-proxy
+              npm config rm https-proxy
+
+            displayName: "clear proxy "
+          # - script:
+          #        npm cache clear -f
+          #   displayName: 'clear cache'
+          - script: npm config set strict-ssl false
+            displayName: "set ssl proxy to false"
+          #    - script:
+          #         npm config set registry=https://azuredevops.ikco.com/InfrastructureCollection/_packaging/IkcoFeed/npm/registry/
+          #      displayName: 'set registry'
+          # - script:
+          #     npm config get registry
+          #   displayName: 'get registry'
+          # - script:
+          #     npm config ls -l
+          #   displayName: 'npm config list'
+          - script: npm install --force --legacy-peer-deps --loglevel verbose
+            displayName: "install node-modules with log and legacy-peer parameters"
+
+          - script: npm run build
+            displayName: "on buildSrv-npm run build"
+          - task: CopyFiles@2
+            inputs:
+              SourceFolder: C:\MashaalData\Infrastructure\Ava
+              contents: "web.config*"
+              targetFolder: $(Build.SourcesDirectory)\Build
+              CleanTargetFolder: false
+              OverWrite: true
+            displayName: Add web.Config
+
+          - script: md $(build.artifactstagingdirectory)\AvaFrontend
+            displayName: create Frontend Artifact Directory
+          - task: CopyFiles@2
+            inputs:
+              SourceFolder: $(Build.SourcesDirectory)\Build
+              contents: "**"
+              targetFolder: $(build.artifactstagingdirectory)\AvaFrontend
+              CleanTargetFolder: true
+              OverWrite: true
+            displayName: Copy To TempFolder
+
+          - task: PublishBuildArtifacts@1
+            inputs:
+              PathtoPublish: $(Build.ArtifactStagingDirectory)\AvaFrontend
+              ArtifactName: "AvaFrontend_Artifact"
+              publishLocation: "Container"
+#=================================End Of Frontend CI=========================================
