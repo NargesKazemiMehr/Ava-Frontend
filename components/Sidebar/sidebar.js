@@ -20,48 +20,8 @@ function Sidebar() {
     });
   };
   let data = [];
-  if (document.URL.includes(".sec")) {
-    data = [
-      {
-        operationId: 3588,
-        operationFaName: "ارسال پيام",
-        operationEnName: "Send Message",
-        parentOperationId: 3588,
-        menuAction: "/SendMessage",
-        oId: null,
-        sortOrderPriority: 1,
-      },
-      {
-        operationId: 3590,
-        operationFaName: "پيامك",
-        operationEnName: "SMS",
-        parentOperationId: 3588,
-        menuAction: "/SMS",
-        oId: null,
-        sortOrderPriority: 1,
-      },
-      {
-        operationId: 6311,
-        operationFaName: "ايميل",
-        operationEnName: "Email",
-        parentOperationId: 3588,
-        menuAction: "/Email",
-        oId: null,
-        sortOrderPriority: 2,
-      },
-      {
-        operationId: 6846,
-        operationFaName: "پيام رسان سروش",
-        operationEnName: "Soroush",
-        parentOperationId: 3588,
-        menuAction: "/Soroush",
-        oId: null,
-        sortOrderPriority: 3,
-      },
-    ];
-  } else {
     data = sidebarData || [];
-  }
+
 
   const openSidebar = useSelector(
     (state) => state.UserInfoReducer?.openSidebar
