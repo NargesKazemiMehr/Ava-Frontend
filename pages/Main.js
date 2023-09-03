@@ -14,7 +14,7 @@ export default function Main() {
       http
         .get(`${apiUrl.GetUserPermissions}`, {
           headers: { "X-Token": state.apiKey },
-          params: { unitId: 214 },
+          params: { unitId: 1111 },
         })
         .then((userResponse) => {
           if (userResponse.status === 200) {
