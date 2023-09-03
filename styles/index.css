@@ -1,0 +1,41 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+:root {
+  --tabletextColor: #cf055b;
+  --pagebackground: linear-gradient(
+    rgba(242, 246, 248, 0.2),
+    rgba(185, 222, 246, 0.5)
+  ) !important;
+}
+@font-face {
+  src: url(../assets/fonts/Vazir-Medium-FD-WOL.ttf);
+  font-family: "Vazir-Light-FD-WOL";
+  font-display: swap;
+}
+
+body,
+html {
+  direction: rtl;
+  margin: 0;
+  font-size: 13px;
+  overflow: hidden;
+  padding: 0px 0 0 0;
+  font-family: "Vazir-Light-FD-WOL", sans-serif !important;
+  background: url(../assets/img/bodyBG2.png);
+  background-position: top;
+  height: 100vh;
+}
+
+#root {
+  height: 100vh;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-size: revert !important;
+}

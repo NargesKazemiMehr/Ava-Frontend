@@ -1,0 +1,168 @@
+.sidenav {
+  background: linear-gradient(#c6e3f6, rgba(172, 207, 230, 0.8)) !important;
+  color: #03016c;
+  height: 91vh;
+  overflow-y: auto;
+  padding-top: 10px;
+  position: absolute;
+  right: 0;
+  text-align: right;
+  top: 81px;
+  transition: 0.5s;
+  width: 0;
+  z-index: 99;
+}
+.sidenav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.submenu-li-link {
+  padding: 8px 22px 8px 32px;
+  text-decoration: none;
+  color: darkblue;
+  display: block;
+}
+.submenu-li-link:hover {
+  background-color: rgb(180, 180, 206);
+}
+
+.sidenav .closebtn {
+  position: absolute;
+  top: 0;
+  left: 0;
+  font-size: 36px;
+}
+
+.faAngleLeft:active {
+  transform: rotate(-90deg);
+  transition: transform 0.4s ease-out;
+}
+.faAngleLeft:hover {
+  cursor: pointer;
+}
+.sidenav .dropdown-menu {
+  direction: rtl;
+}
+.sidenav .dropdown-menu a {
+  color: black;
+
+  direction: rtl;
+}
+.side-logo {
+  text-align: center;
+  color: black;
+  font-weight: 600;
+  font-size: 16px;
+}
+.side-logo p {
+  color: #cf055b;
+}
+.sidenav li:hover {
+  /* background-color: #e9e97d; */
+  color: #cf055b;
+  font-weight: 500;
+  text-decoration: none;
+}
+.side-dropdown {
+  margin-left: -38px;
+}
+.divider {
+  margin: 0.4rem;
+}
+/* .submenu-div > ul {
+  display: none;
+} */
+
+.nav-searchbox-div {
+  margin: 20px;
+  text-align: center;
+  color: gray;
+  font-weight: 400;
+  font-size: 14px;
+}
+.nav-searchbox {
+  width: 15em;
+  height: 35px;
+  border: solid 1px lightgray;
+  border-top-right-radius: 3px !important;
+  border-bottom-right-radius: 3px !important;
+}
+.nav-searchbox:focus {
+  outline: none;
+}
+/* .dropdown-divider {
+  margin-right: -35px !important;
+  border-top: 1px solid gainsboro !important;
+} */
+/* .submenu-a {
+  margin-right: 10px !important;
+} */
+.submenu-a:hover {
+  background-color: transparent !important;
+}
+.submenu-ul li:hover {
+  background-color: #ffffc7;
+}
+/* .submenu-ul li {
+  margin-right: -40px;
+} */
+.searchbox-result-div {
+  z-index: 90;
+  background-color: aliceblue;
+  width: 15em;
+  box-shadow: 2px 2px 2px 1px rgb(226, 213, 168);
+  border-radius: 5px;
+  margin-top: 2px;
+
+  border: solid 1px rgb(226, 213, 168);
+}
+.searchbox-result-div ul {
+  list-style: none;
+  text-align: right;
+  margin-right: 5px;
+  display: contents;
+}
+
+.searchbox-result-div ul li a:hover {
+  background-color: #ffffc7;
+  font: weight 500px;
+  color: black;
+}
+.submenu-ul {
+  list-style: none;
+  background-color: aliceblue;
+  transition: 0.5s;
+}
+.sidenav .dropdown-menu {
+  display: block;
+  text-align: right;
+  scroll-behavior: left;
+  direction: ltr;
+}
+
+@media screen and (max-height: 450px) {
+  .sidenav {
+    padding-top: 15px;
+  }
+}
+
+.searchIcon svg {
+  font-size: large;
+}
+.menu-li {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  flex-direction: row;
+}
+.menu-li-link {
+  display: flex;
+  flex: 1;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 22px 8px 32px;
+  color: darkblue;
+  cursor: pointer;
+}

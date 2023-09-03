@@ -1,0 +1,37 @@
+.container {
+  padding: 16px;
+  justify-content: center;
+  text-align: right !important;
+  overflow: auto;
+  height: 100%;
+}
+.editor {
+  margin: 0;
+}
+.mobile {
+  display: flex;
+}
+
+.radio {
+  display: flex;
+}
+.userList {
+  display: flex;
+  justify-content: space-evenly;
+}
+.userList__radio {
+}
+.userList__textbox {
+  /* flex: 1; */
+}
+.userList__richtext {
+  display: flex;
+}
+.userList__richtext label {
+  transform-origin: top right !important;
+  right: 0;
+}
+
+.users {
+  display: flex;
+}
