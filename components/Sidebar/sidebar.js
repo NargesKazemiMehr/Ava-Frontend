@@ -7,6 +7,7 @@ import * as types from "../../state-management/actions/actionTypes";
 import onClickOutside from "react-onclickoutside";
 
 function Sidebar() {
+    const dispatch = useDispatch();
   const sidebarData = useSelector(
     (state) => state.UserInfoReducer?.sidebarData
   );
@@ -21,14 +22,9 @@ function Sidebar() {
   };
   let data = [];
     data = sidebarData || [];
-
-
   const openSidebar = useSelector(
     (state) => state.UserInfoReducer?.openSidebar
   );
-
-  const dispatch = useDispatch();
-
   return (
     <>
       <div
