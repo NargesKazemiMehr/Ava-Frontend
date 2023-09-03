@@ -31,7 +31,6 @@ function Sidebar() {
 
   return (
     <>
-      {console.log("sidebarData", sidebarData)}
       <div
         className="sidenav navbar-dark "
         style={openSidebar ? { width: "290px" } : { width: "0px" }}
