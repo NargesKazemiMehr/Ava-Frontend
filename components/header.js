@@ -24,10 +24,6 @@ const Header = () => {
       payload: !openSidebar,
     });
   }
-  // const fromWindowsGate = useSelector(
-  //   (state) => state.UserInfoReducer?.fromWindowsGate
-  // );
-
   return (
     <>
       <div className=" navbarcolor navbarheader headercontent flex-row ">
@@ -38,7 +34,6 @@ const Header = () => {
                 fontSize: "30px",
                 cursor: "pointer",
               }}
-              // onClick={openNav}
             >
               <SvgIcons name="Menu" onClick={openNav} />
             </span>
