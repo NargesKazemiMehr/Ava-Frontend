@@ -10,12 +10,7 @@ const Header = () => {
   const userFullName = useSelector(
     (state) => state.UserInfoReducer?.userFullName
   );
-  let userName = "";
-  if (document.URL.includes(".sec")) {
-    userName = "ناديا شريفات ";
-  } else {
-    userName = userFullName || "";
-  }
+  let userName = userFullName;
 
   const { openSidebar, currentUnitName } = useSelector(
     (state) => state.UserInfoReducer,
