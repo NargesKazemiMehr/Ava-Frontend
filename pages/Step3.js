@@ -135,14 +135,7 @@ export const Step3 = () => {
   const SendSms = () => {
     setShowModal(false);
     let formData = new FormData();
-    console.log(
-      "sendMessageMode",
-      sendMessageMode,
-      "sendMessageTo",
-      sendMessageTo.length,
-      sendMessageTo_fromFile.length,
-      sendMessageTo_handi.length
-    );
+
     sendMessageMode === "domain" && sendMessageTo.length > 0
       ? sendMessageTo.map((x) => {
           return formData.append("To", x.userName);
@@ -205,11 +198,6 @@ export const Step3 = () => {
       ];
     } else {
       columns = [
-        {
-          Header: "دامنه",
-          accessor: "desc",
-          width: "100px",
-        },
         {
           Header: "شماره پرسنلي",
           accessor: "userName",
