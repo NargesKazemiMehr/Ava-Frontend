@@ -10,10 +10,9 @@ export default function Validation() {
   const searchParams = new URLSearchParams(location.search);
 
   const systemCode = process.env.React_APP_SYSTEMCODE;
-  const userSessionId = searchParams.get("UserSessionId");
-  const systemSessionId = searchParams.get("SystemSessionId");
-  const token = searchParams.get("Token");
-  const userunit = 214;
+  const usid = searchParams.get("usid");
+  const ssid = searchParams.get("ssid");
+
   // const { state, dispatch } = React.useContext(UserContext);
   const dispatch = useDispatch();
 
@@ -24,13 +23,11 @@ export default function Validation() {
         params: {
           softwareId: systemCode,
           userUnit: userunit,
-          userSessionId: userSessionId,
-          systemSessionId: systemSessionId,
+          ssid: ssid,
+          ssid: ssid,
         },
       })
         .then((response) => {
-          //dispatch({ type: "SYSTEM_TOKEN", payload: res.data.token });
-          //localStorage.setItem("token", JSON.stringify(res.data.token));
           dispatch({
             type: types.get_UserFullName,
             payload: response.data.fullName,
