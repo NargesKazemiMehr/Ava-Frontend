@@ -109,39 +109,7 @@ export const Step2 = () => {
       })
       .catch((e) => console.log("error getDomains", e.response));
   };
-  // useEffect(() => {
-  //   console.log("D2");
 
-  //   dispatch({
-  //     type: types.has_Error,
-  //     payload: true,
-  //   });
-  // }, []);
-  useEffect(() => {
-    dispatch({
-      type: types.step,
-      payload: 2,
-    });
-  }, []);
-  useEffect(() => {
-    getData();
-    dispatch({
-      type: types.sendMessage_Domain,
-      payload: checked,
-    });
-  }, [checked]);
-  useEffect(() => {
-    dispatch({
-      type: types.sendMessage_To,
-      payload: list,
-    });
-  }, [list]);
-  useEffect(() => {
-    dispatch({
-      type: types.sendMessage_To_Handi,
-      payload: listHandi,
-    });
-  }, [listHandi]);
   useEffect(() => {
     dispatch({
       type: types.sendMessage_To_FromeFile,
@@ -256,13 +224,9 @@ export const Step2 = () => {
   const columns =
     sendMessageType === "Email"
       ? [
+
           {
-            Header: "دامنه",
-            accessor: "desc",
-            width: "100px",
-          },
-          {
-            Header: "شماره پرسنلي",
+            Header: "x",
             accessor: "userName",
             imgAccessor: "imgUrl",
             emailAccessor: "email",
@@ -285,18 +249,7 @@ export const Step2 = () => {
           },
         ]
       : [
-          {
-            Header: "دامنه",
-            accessor: "desc",
-            width: "100px",
-          },
-          {
-            Header: "شماره پرسنلي",
-            accessor: "userName",
-            imgAccessor: "imgUrl",
-            emailAccessor: "email",
-            width: "80px",
-          },
+          
           {
             Header: "نام",
             accessor: "firstName",
@@ -318,22 +271,7 @@ export const Step2 = () => {
   const handleCheckboxDomain = (value, index1, e) => {
     const currentIndex = checked.indexOf(value);
     const newChecked = [...checked];
-    // console.log(
-    //   "value",
-    //   value,
-    //   "newChecked",
-
-    //   newChecked,
-    //   "Checked",
-
-    //   checked,
-    //   "index",
-    //   index1,
-    //   "currentIndex",
-    //   currentIndex,
-    //   "salammm",
-    //   checked.findIndex((item) => item.name === value["name"])
-    // );
+  
     if (!newChecked.some((item) => item.name === value["name"])) {
       newChecked.push(value);
     } else {
@@ -388,16 +326,16 @@ export const Step2 = () => {
       .readText()
       .then((text) => {
         if (text !== "text") {
-          // xx.push(text.trim().replaceAll("\r", "").split("\n"));
-          var yy = text.trim().replaceAll("\r", "").split("\n");
+          
+          var team = text.trim().replaceAll("\r", "").split("\n");
 
           if (
             sendMessageType === "Email" &&
-            yy.some((item, index) => yy.indexOf(item) === index)
+            team.some((item, index) => yy.indexOf(item) === index)
           ) {
-            //gg.filter((item, index) => gg.indexOf(item) !== index);
+        
 
-            yy.filter((item, index) => yy.indexOf(item) === index).forEach(
+            team.filter((item, index) => yy.indexOf(item) === index).forEach(
               (item) => {
                 const newarray = {
                   domainID: rowCountFromFile++,
@@ -418,9 +356,9 @@ export const Step2 = () => {
             );
           } else if (
             sendMessageType === "SMS" &&
-            yy.some((item, index) => yy.indexOf(item) === index)
+            team.some((item, index) => yy.indexOf(item) === index)
           ) {
-            yy.filter((item, index) => yy.indexOf(item) === index).forEach(
+            team.filter((item, index) => yy.indexOf(item) === index).forEach(
               (item) => {
                 const newarray = {
                   domainID: rowCountFromFile++,
@@ -446,10 +384,6 @@ export const Step2 = () => {
         console.error("Failed to read clipboard contents: ", err);
       });
 
-    // const str = e.clipboardData
-    //   .getData("Text").trim()
-    //   .replaceAll("\r", "")
-    //   .split("\n");
   };
   const handleErase = (e) => {
     rowCountFromFile = 0;
@@ -650,11 +584,10 @@ export const Step2 = () => {
                   ></ReactTable>
                 ) : !sendMessageTo_All && checked.length > 0 ? (
                   <div style={{ marginTop: "3rem" }}>
-                    پرسنل با پست الكترونيكي تاييد شده در دامنه منتخب يافت نشد
-                  </div>
+                   دامنه منتخب يافت نشد               </div>
                 ) : (
                   <div style={{ marginTop: "3rem" }}>
-                    ارسال پيام به كليه پرسنل اعم از گروه صنعتي و شركت هاي تابعه
+           
                   </div>
                 )}
               </div>
@@ -706,13 +639,7 @@ export const Step2 = () => {
                         }
                         helperText={
                           error
-                          // sendMessageType === "SMS"
-                          //   ? mobile
-                          //     ? "ok"
-                          //     : "no"
-                          //   : email
-                          //   ? "oke"
-                          //   : "noe"
+  
                         }
                         type={sendMessageType === "SMS" ? "number" : "text"}
                         sx={{ direction: "ltr", width: "100%" }}
