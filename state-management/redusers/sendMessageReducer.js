@@ -16,7 +16,7 @@ import {
 } from "../actions/actionTypes";
 
 const initialstate = {
-  sendMessageType: "", //"Email","SMS","Soroush"
+  sendMessageType: "", //"Email","SMS"
   sendMessageTo: [],
   sendMessageTo_handi: [],
   sendMessageTo_fromFile: [],
