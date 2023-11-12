@@ -14,10 +14,8 @@ import * as types from "../state-management/actions/actionTypes";
 import SvgIcons from "../assets/img/SvgIcons2";
 
 const steps = [
-  "وارد كردن پيام",
-  //   "تعيين روش ارسال پيام",
-  "تعيين ليست كاربران",
-  "ارسال پيام",
+  "x2",
+  "x1",
 ];
 
 export default function Stepper() {
@@ -30,11 +28,8 @@ export default function Stepper() {
     sendMessageTo_Mode,
     sendMessageTo_handi,
     sendMessageTo_fromFile,
-    sendMessageDomain,
     hasError,
     alert,
-    sendMessageBody,
-    sendMessageSubject,
     step,
   } = useSelector((state) => state.SendMessageReducer);
   const dispatch = useDispatch();
@@ -101,26 +96,6 @@ export default function Stepper() {
     dispatch({
       type: types.sendMessage_Mode,
       payload: "domain",
-    });
-    dispatch({
-      type: types.sendMessage_To_All,
-      payload: true,
-    });
-    dispatch({
-      type: types.sendMessage_To_Handi,
-      payload: [],
-    });
-    dispatch({
-      type: types.sendMessage_To_FromeFile,
-      payload: [],
-    });
-    dispatch({
-      type: types.sendMessage_Attachment,
-      payload: "",
-    });
-    dispatch({
-      type: types.sendMessage_To_Mode,
-      payload: "handi",
     });
     dispatch({
       type: types.set_Alert,
