@@ -1,14 +1,10 @@
-# Node.js with React
-# Build a Node.js project that uses React.
-# Add steps that analyze code, save build artifacts, deploy, and more:
-# https://docs.microsoft.com/azure/devops/pipelines/languages/javascript
 # Created By: Narges kazemi
 
 trigger:
   - master
 
 pool:
-  name: "IKCOPool"
+  name: "xx"
 
 stages:
   - stage: Frontend
@@ -32,7 +28,7 @@ stages:
           - script: npm config set strict-ssl false
             displayName: "set ssl proxy to false"
           #    - script:
-          #         npm config set registry=https://azuredevops.ikco.com/InfrastructureCollection/_packaging/IkcoFeed/npm/registry/
+          #         npm config set registry=https://xxx
           #      displayName: 'set registry'
           # - script:
           #     npm config get registry
@@ -47,7 +43,7 @@ stages:
             displayName: "on buildSrv-npm run build"
           - task: CopyFiles@2
             inputs:
-              SourceFolder: C:\MashaalData\Infrastructure\Ava
+              SourceFolder: C:\xx
               contents: "web.config*"
               targetFolder: $(Build.SourcesDirectory)\Build
               CleanTargetFolder: false
@@ -68,6 +64,6 @@ stages:
           - task: PublishBuildArtifacts@1
             inputs:
               PathtoPublish: $(Build.ArtifactStagingDirectory)\AvaFrontend
-              ArtifactName: "AvaFrontend_Artifact"
+              ArtifactName: "Ava"
               publishLocation: "Container"
 #=================================End Of Frontend CI=========================================
