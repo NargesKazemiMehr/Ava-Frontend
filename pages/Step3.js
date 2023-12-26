@@ -6,19 +6,10 @@ import Stack from "@mui/material/Stack";
 import Button from "@mui/material/Button";
 import { shallowEqual, useDispatch, useSelector } from "react-redux";
 import ReactTable from "../components/ReactTable";
-import { Label } from "reactstrap";
 import { CRUDMode } from "../constants/CRUDMode";
 
-import { TextField } from "@mui/material";
-import { useNavigate } from "react-router-dom";
-import { Modal } from "../components/Modal";
-import { Toast } from "../components/Toast";
-import DraftEditor from "../components/Editor/DraftEditor";
-import draftToHtml from "draftjs-to-html";
 import * as types from "../state-management/actions/actionTypes";
-import ProgressBar from "../components/Progressbar";
 
-// import { BootstrapButton, ColorButton, Button } from "../components/Botton";
 
 export const Step3 = () => {
   const navigate = useNavigate();
@@ -53,7 +44,11 @@ const useSendMessage = (apiKey, dispatch) => {
 };
   
 const { sendEmail, sendSms } = useSendMessage(apiKey, dispatch);
-
+const createFormData = () => {
+  let formData = new FormData();
+  // Form data creation logic
+  return formData;
+};
   const handleDialog = async () => {
     setShowModal(false);
     try {
