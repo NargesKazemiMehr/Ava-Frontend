@@ -13,7 +13,7 @@ export default function Validation() {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   useEffect(() => {
-    if (userSessionId && systemSessionId) {
+    if (usId && ssidId) {
       Http.get(`${apiUrl.CheckValidation}`, {
         params: {
  params:params,
