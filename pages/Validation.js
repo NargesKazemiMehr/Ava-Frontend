@@ -9,22 +9,14 @@ export default function Validation() {
   const location = useLocation();
   const searchParams = new URLSearchParams(location.search);
 
-  const systemCode = process.env.React_APP_SYSTEMCODE;
-  const usid = searchParams.get("usid");
-  const ssid = searchParams.get("ssid");
-
   // const { state, dispatch } = React.useContext(UserContext);
   const dispatch = useDispatch();
-
   const navigate = useNavigate();
   useEffect(() => {
     if (userSessionId && systemSessionId) {
       Http.get(`${apiUrl.CheckValidation}`, {
         params: {
-          softwareId: systemCode,
-          userUnit: userunit,
-          ssid: ssid,
-          ssid: ssid,
+ params:params,
         },
       })
         .then((response) => {
